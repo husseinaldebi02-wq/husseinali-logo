@@ -1,0 +1,397 @@
+:root {
+    --gold: #D4AF37;
+    --navy: #000080;
+    --white: #FFFFFF;
+    --light-gold: #F4E4B5;
+    --dark-navy: #000066;
+    --cursor-size: 8px;
+    --cursor-follow-size: 25px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--navy);
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+header {
+    background-color: var(--navy);
+    color: var(--white);
+    padding: 150px 0;
+    text-align: center;
+    position: relative;
+    background-image: linear-gradient(135deg, var(--navy) 0%, var(--dark-navy) 100%);
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1" fill="%23D4AF37" opacity="0.15"/></svg>') repeat;
+    z-index: 1;
+}
+
+.hero {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 4.5rem;
+    margin-bottom: 30px;
+    color: var(--gold);
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: fadeInDown 1s ease;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    color: var(--white);
+    font-weight: 600;
+    animation: fadeInUp 1s ease 0.3s;
+    animation-fill-mode: both;
+}
+
+.hero p {
+    font-size: 1.8rem;
+    color: var(--light-gold);
+    margin-bottom: 40px;
+    font-weight: 300;
+    animation: fadeInUp 1s ease 0.6s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.portfolio {
+    padding: 100px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: linear-gradient(to bottom, var(--white) 0%, rgba(212,175,55,0.1) 100%);
+}
+
+.portfolio h2 {
+    text-align: center;
+    color: var(--navy);
+    margin-bottom: 60px;
+    font-size: 2.8rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.portfolio h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--gold);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-bottom: 80px;
+    padding: 20px;
+}
+
+.portfolio-item {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    background: var(--white);
+}
+
+.portfolio-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,128,0.7), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.portfolio-item:hover::before {
+    opacity: 1;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+.contact {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--dark-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--gold) 0%, transparent 60%);
+    opacity: 0.1;
+    animation: rotate 20s linear infinite;
+}
+
+.contact-button {
+    display: inline-block;
+    padding: 20px 50px;
+    background: linear-gradient(to right, var(--gold), var(--light-gold), var(--gold));
+    color: var(--navy);
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(212,175,55,0.4);
+}
+
+.contact-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(212,175,55,0.5);
+    background-position: right center;
+}
+
+.contact-button:active {
+    transform: translateY(-1px);
+}
+
+.contact-button i {
+    margin-right: 12px;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--navy);
+    color: var(--white);
+}
+
+/* Özel imleç stilleri */
+.cursor {
+    width: var(--cursor-size);
+    height: var(--cursor-size);
+    background: var(--gold);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.cursor-follower {
+    width: var(--cursor-follow-size);
+    height: var(--cursor-follow-size);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    transition: transform 0.1s;
+    z-index: 9998;
+}
+
+.scroll-indicator {
+    margin-top: 50px;
+}
+
+.mouse {
+    width: 26px;
+    height: 40px;
+    border: 2px solid var(--gold);
+    border-radius: 20px;
+    display: inline-block;
+    position: relative;
+}
+
+.wheel {
+    width: 4px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 2px;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll 1.5s infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, 15px);
+        opacity: 0;
+    }
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 128, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.4s ease;
+    transform: translateY(20px);
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.portfolio-overlay h3 {
+    color: var(--gold);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.portfolio-overlay p {
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.glowing-text {
+    text-shadow: 0 0 10px var(--gold),
+                 0 0 20px var(--gold),
+                 0 0 30px var(--gold);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px var(--gold),
+                     0 0 20px var(--gold),
+                     0 0 30px var(--gold);
+    }
+    to {
+        text-shadow: 0 0 15px var(--gold),
+                     0 0 25px var(--gold),
+                     0 0 35px var(--gold);
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive tasarım iyileştirmeleri */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cursor, .cursor-follower {
+        display: none;
+    }
+    
+    .portfolio-overlay {
+        opacity: 1;
+        transform: translateY(0);
+        background: rgba(0, 0, 128, 0.7);
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+    }
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+}
